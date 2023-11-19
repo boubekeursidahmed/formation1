@@ -24,6 +24,7 @@ class Activity2 : AppCompatActivity() {
         val texEmail: TextView = findViewById(R.id.a2_id_email)
         val textPassword: TextView = findViewById(R.id.a2_id_password)
 
+        val btnNext: Button = findViewById(R.id.a2_bntNext)
 
         val btnSave : Button = findViewById(R.id.a2_btn_save)
 
@@ -39,7 +40,7 @@ class Activity2 : AppCompatActivity() {
         btnSave.setOnClickListener {
             val editor = sharedPreferences.edit()
 
-            editor.putString("data_name",name_user)
+            editor.putString("data_name", name_user)
             editor.putString("data_email", email_user)
             editor.putString("data_password", password_user)
             editor.putBoolean("isSaved", true)
@@ -47,7 +48,8 @@ class Activity2 : AppCompatActivity() {
             editor.apply()
 
             Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
-
+        }
+        btnNext.setOnClickListener {
             intent = Intent(this, Activity3::class.java).also {
                 startActivity(it)
             }
